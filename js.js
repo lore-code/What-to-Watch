@@ -66,7 +66,6 @@ $.ajax(settings).done(function (response) {
   for (var i = 0; i < 9; i++) {
 
   		var y = Math.floor(Math.random() * 21);
-  		console.log(y);
 
 
   	
