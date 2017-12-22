@@ -1,7 +1,19 @@
 body{
 
 	text-align: center;
-	background-color: grey;
+	background-color: #bbdefb;
+	
+	font-family:  'Roboto';
 }
 
+
+#type {
+
+	margin: 40px;
+}
+
+.brand-logo {
+
+	font-family:  'Shrikhand', cursive;
+}
 

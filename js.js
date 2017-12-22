@@ -63,7 +63,7 @@ $.ajax(settings).done(function (response) {
   console.log(response);
   for (var i = 0; i < 9; i++) {
 
-  		var y = Math.floor(Math.random() * 20);
+  		var y = Math.floor(Math.random() * 21);
   		console.log(y);
   	
   		var test = response.results[y];
