@@ -61,13 +61,17 @@ $.ajax(settings).done(function (response) {
 	var total = response.total_results;
 	console.log(total);
   console.log(response);
+
+
   for (var i = 0; i < 9; i++) {
 
   		var y = Math.floor(Math.random() * 21);
   		console.log(y);
+
+
   	
-  		var test = response.results[y];
-  		console.log(test);
+  		var info = response.results[y];
+  		console.log(info);
 
   		// var test1 = JSON.stringify(test);
 
@@ -77,33 +81,35 @@ $.ajax(settings).done(function (response) {
 
       if (type ==="movie") {
 
-        title = test["original_title"];
+        title = info["original_title"];
       }
 
       else {
 
-        title = test["name"];
+        title = info["name"];
       }
 
       var poster;
 
-      if (test["poster_path"]===null) {
+      if (info["poster_path"]===null) {
 
         poster = "https://static.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg"
       }
 
       else {
 
-        poster = "https://image.tmdb.org/t/p/w154/"+test["poster_path"];
+        poster = "https://image.tmdb.org/t/p/w154/"+info["poster_path"];
       }
 
       console.log(poster);
+
+      var plot = info["overview"];
   		
   		$("#info").append(
 
       '<div class="col s12 m4 l4"><div class="card"><div class="card-image waves-effect waves-block waves-light">' + 
       '<img class="activator"' + 'src=' + poster + '></div>' + 
-    '<div class="card-content"><span class="card-title activator grey-text text-darken-4">' + title + '<i class="material-icons right">more_vert</i></span></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">' + title + '<i class="material-icons right">close</i></span><p>Here is some more information about this product that is only revealed once clicked on.</p></div></div>');
+    '<div class="card-content"><span class="card-title activator grey-text text-darken-4">' + title + '<i class="material-icons right">more_vert</i></span></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">' + title + '<i class="material-icons right">close</i></span><p>Plot: ' + plot + '</p></div></div>');
   	
   }
   
