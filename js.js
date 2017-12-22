@@ -27,9 +27,10 @@ $(".types").click(function()
 
 
 
+
 var mykey = '5b71a5423ce9867b54b412be9e53e288';
  
-var page =  Math.floor(Math.random() * 500);
+var page =  Math.floor(Math.random() * 100);
 
 var type;
 
@@ -41,10 +42,13 @@ $(".types").click(function(){
         
     }); 
 
+
+
+
 var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "https://api.themoviedb.org/3/discover/"+ type + "?api_key=" + mykey + "&page=" + page + "&language=en-US&certification_country=US&sort_by=popularity.desc&include_adult=false&include_video=false&with_genres=18",
+  "url": "https://api.themoviedb.org/3/discover/"+ type + "?api_key=" + mykey + "&page=" + page + "&language=en-US&certification_country=US&sort_by=popularity.desc&include_adult=false&include_video=false",
   "headers": {},
   "data": "{}"
   
