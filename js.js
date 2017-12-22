@@ -27,7 +27,7 @@ $(".types").click(function()
 
 
 
-var mykey = config.MY_KEY;
+var mykey = '5b71a5423ce9867b54b412be9e53e288';
  
 var page =  Math.floor(Math.random() * 500);
 
