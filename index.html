@@ -13,6 +13,9 @@
 
       <link href="https://fonts.googleapis.com/css?family=Roboto|Shrikhand" rel="stylesheet"> 
 
+      <!-- Emojis! -->
+      <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1"/>
     </head>
@@ -40,8 +43,8 @@
           <h4>Step 1</h4>
           <p>Choose your media:</p>
 
-        <button id="movie" class="types btn btn-large" value="movie">MOVIE</button>
-        <button  id ="tv" class="types btn btn-large" value="tv">TV</button>
+        <button id="movie" class="types btn-floating btn-large waves-effect waves-light white" value="movie"><i class="em em-movie_camera"></i></button>
+        <button id ="tv" class="types btn-floating btn-large waves-effect waves-light white" value="tv"><i class="em em-tv"></i></button>
 
         
 
@@ -49,7 +52,28 @@
 
       
 
-      <div></div>
+      <div id="categories">
+
+        <h4>Step 2</h4>
+          <p>Choose your category:</p>
+
+        <button class=" cat btn-floating btn-large waves-effect waves-light white" value="random"><i class="em em-question"></i></button>
+
+        <button class=" cat btn-floating btn-large waves-effect waves-light white" value = "drama"><i class="em em-cry"></i></button>
+        <button class=" cat btn-floating btn-large waves-effect waves-light white" value = "romance"><i class="em em-couple_with_heart circle"></i></button>
+        
+         <button class=" cat btn-floating btn-large waves-effect waves-light white" value = "comedy"><i class="em em-rolling_on_the_floor_laughing"></i></button>
+
+         <button class=" cat btn-floating btn-large waves-effect waves-light white" value = "scary"><i class="em em-scream"></i></button>
+
+         
+
+
+        
+
+
+      </div>
+
       <div class="row" id="info"></div>
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

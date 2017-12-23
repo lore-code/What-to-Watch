@@ -4,7 +4,7 @@ $( document ).ready(function() {
     console.log( "ready!" );
     
 
-    $("#category").hide();
+    $("#categories").hide();
 
 
 });
@@ -15,7 +15,7 @@ $(".types").click(function()
    
 
    console.log("something was clicked");
-   $("#category").show();
+   $("#categories").show();
 
    $("#type").hide();
 
