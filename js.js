@@ -192,9 +192,10 @@ var y = chance.unique(chance.integer, 9, {min: 0, max: 19});
       var plot = info["overview"];
   		
   		
-      
-            var trailer = "https://www.youtube.com/results?search_query=" + title + " hd + trailer";
+       
+            var trailer = "https://www.youtube.com/results?search_query=" + encodeURIComponent(title + " HD Trailer");
      
+
 
 
           console.log(trailer);
@@ -203,19 +204,12 @@ var y = chance.unique(chance.integer, 9, {min: 0, max: 19});
          $("#info").append(
 
       '<div class="col s12 m4 l4"><div class="card"><div class="card-image waves-effect waves-block waves-light">' + 
-      '<img class="activator"' + 'src=' + poster + '></div><div class="card-content"><span class="card-title activator grey-text text-darken-4">' + title + '<i class="material-icons right">more_vert</i></span></div><'+'div class="card-reveal"><span class="card-title grey-text text-darken-4">' + title + '<i class="material-icons right">close</i></span><p>Plot: ' + plot + '</p><p>Trailer: <a href=' + trailer + '</a>Trailer</p></div>');
+      '<img class="activator"' + 'src=' + poster + '></div><div class="card-content"><span class="card-title activator grey-text text-darken-4">' + title + '<i class="material-icons right">more_vert</i></span></div><'+'div class="card-reveal"><span class="card-title grey-text text-darken-4">' + title + '<i class="material-icons right">close</i></span><p>Plot: ' + plot + '</p><p><a href=' + trailer + '><i class="material-icons large">videocam</i></a></p></div>');
 
+       
        
     
 
-
-
-    
-
-
-    // 
-
-    //https://www.youtube.com/watch?v=SUXWAEX2jlg
   }
 
 
@@ -228,9 +222,3 @@ var y = chance.unique(chance.integer, 9, {min: 0, max: 19});
 
 };
 
-//genre of movie list
-// genre/movie/list?language=en-US&api_key=5b71a5423ce9867b54b412be9e53e288"
-
-
-
-//https://api.themoviedb.org/3/discover/function (a) {  $("button.types").on('click',function(){    type = "movie";  });}?api_key=5b71a5423ce9867b54b412be9e53e288&page=348&language=en-US&certification_country=US&sort_by=popularity.desc&include_adult=false&include_video=false&with_genres=18&{}
