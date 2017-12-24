@@ -137,8 +137,9 @@ var settings = {
       
 
 
-
 $.ajax(settings).done(function (response) {
+
+// $.ajax(settings,settings1)
 
 
 	var total = response.total_results;
@@ -190,14 +191,31 @@ var y = chance.unique(chance.integer, 9, {min: 0, max: 19});
 
       var plot = info["overview"];
   		
-  		$("#info").append(
+  		
+      
+            var trailer = "https://www.youtube.com/results?search_query=" + title + " hd + trailer";
+     
+
+
+          console.log(trailer);
+        
+       
+         $("#info").append(
 
       '<div class="col s12 m4 l4"><div class="card"><div class="card-image waves-effect waves-block waves-light">' + 
-      '<img class="activator"' + 'src=' + poster + '></div>' + 
-    '<div class="card-content"><span class="card-title activator grey-text text-darken-4">' + title + '<i class="material-icons right">more_vert</i></span></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">' + title + '<i class="material-icons right">close</i></span><p>Plot: ' + plot + '</p></div></div>');
+      '<img class="activator"' + 'src=' + poster + '></div><div class="card-content"><span class="card-title activator grey-text text-darken-4">' + title + '<i class="material-icons right">more_vert</i></span></div><'+'div class="card-reveal"><span class="card-title grey-text text-darken-4">' + title + '<i class="material-icons right">close</i></span><p>Plot: ' + plot + '</p><p>Trailer: <a href=' + trailer + '</a>Trailer</p></div>');
 
-      
-  	
+       
+    
+
+
+
+    
+
+
+    // 
+
+    //https://www.youtube.com/watch?v=SUXWAEX2jlg
   }
 
 
