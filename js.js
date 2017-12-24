@@ -143,8 +143,8 @@ $.ajax(settings).done(function (response) {
 
 
 	var total = response.total_results;
-	console.log(total);
-  console.log(response);
+	// console.log(total);
+ //  console.log(response);
 
  //random number using chance library gives me nine numbers between 0 and 19  
 var y = chance.unique(chance.integer, 9, {min: 0, max: 19});
@@ -157,7 +157,7 @@ var y = chance.unique(chance.integer, 9, {min: 0, max: 19});
 
   	 //get results in to variable then get title, poster, plot, trailer
   		var info = response.results[y[i]];
-  		console.log(info);
+  		// console.log(info);
 
   		// var test1 = JSON.stringify(test);
 
@@ -187,7 +187,7 @@ var y = chance.unique(chance.integer, 9, {min: 0, max: 19});
         poster = "https://image.tmdb.org/t/p/w154/"+info["poster_path"];
       }
 
-      console.log(poster);
+      // console.log(poster);
 
       var plot = info["overview"];
   		
@@ -198,7 +198,7 @@ var y = chance.unique(chance.integer, 9, {min: 0, max: 19});
 
 
 
-          console.log(trailer);
+          // console.log(trailer);
         
        
          $("#info").append(
@@ -221,4 +221,8 @@ var y = chance.unique(chance.integer, 9, {min: 0, max: 19});
 
 
 };
+
+
+
+
 
