@@ -60,6 +60,9 @@ var url1;
 
 var url2;
 
+var year_start;
+
+var year_end;
 
 function movieSearch() {
 
@@ -72,7 +75,11 @@ $(".types").click(function(){
 
 //url1 is url with type and key
 
-url1 = "https://api.themoviedb.org/3/discover/"+ type + "?api_key=" + mykey;
+year_start = "2015-01-01";
+
+year_end = "2018-12-31";
+
+url1 = "https://api.themoviedb.org/3/discover/"+ type + "?api_key=" + mykey + "&primary_release_date.gte=" + year_start + "&primary_release_date.lte=" + year_end;
 
 //get category value;
 
