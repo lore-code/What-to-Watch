@@ -64,6 +64,8 @@ var year_start;
 
 var year_end;
 
+
+
 function movieSearch() {
 
   //when movie or tv clicked get value 
@@ -79,7 +81,17 @@ year_start = "2015-01-01";
 
 year_end = "2018-12-31";
 
-url1 = "https://api.themoviedb.org/3/discover/"+ type + "?api_key=" + mykey + "&primary_release_date.gte=" + year_start + "&primary_release_date.lte=" + year_end;
+
+if (type == "movie"){
+
+  url1 = "https://api.themoviedb.org/3/discover/"+ type + "?api_key=" + mykey + "&primary_release_date.gte=" + year_start + "&primary_release_date.lte=" + year_end;
+}
+
+if (type =="tv"){
+  url1 = "https://api.themoviedb.org/3/discover/"+ type + "?api_key=" + mykey + "&first_air_date.gte=" + year_start + "&first_air_date.lte=" + year_end;
+}
+
+
 
 //get category value;
 
@@ -164,23 +176,28 @@ var y = chance.unique(chance.integer, 9, {min: 0, max: 19});
 
   	 //get results in to variable then get title, poster, plot, trailer
   		var info = response.results[y[i]];
-  		// console.log(info);
+  		console.log(info);
 
   		// var test1 = JSON.stringify(test);
 
   		var title;
+      var date;
 
       //select titles based on type
 
       if (type ==="movie") {
 
         title = info["original_title"];
+        date = info["release_date"].slice(0,4);
+
       }
 
       else {
 
         title = info["name"];
+        date = info["first_air_date"].slice(0,4);
       }
+
 
       var poster;
 
@@ -206,12 +223,16 @@ var y = chance.unique(chance.integer, 9, {min: 0, max: 19});
 
 
           // console.log(trailer);
+
+      // 
+
+      // console.log(date);
         
        
          $("#info").append(
 
       '<div class="col s12 m4 l4"><div class="card"><div class="card-image waves-effect waves-block waves-light">' + 
-      '<img class="activator"' + 'src=' + poster + '></div><div class="card-content"><span class="card-title activator grey-text text-darken-4">' + title + '<i class="material-icons right">more_vert</i></span></div><'+'div class="card-reveal"><span class="card-title grey-text text-darken-4">' + title + '<i class="material-icons right">close</i></span><p>Plot: ' + plot + '</p><p><a href=' + trailer + '><i class="material-icons large">videocam</i></a></p></div>');
+      '<img class="activator"' + 'src=' + poster + '></div><div class="card-content"><span class="card-title activator grey-text text-darken-4">' + title + '<p>' + date + '</p><i class="material-icons right">more_vert</i></span></div><'+'div class="card-reveal"><span class="card-title grey-text text-darken-4">' + title + '<i class="material-icons right">close</i></span><p>Plot: ' + plot + '</p><p><a href=' + trailer + '><i class="material-icons large">videocam</i></a></p></div>');
 
        
        
