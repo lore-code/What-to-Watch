@@ -1,0 +1,22 @@
+{
+  "short_name": "Pick 4 Me",
+  "name": "Leslie's Movie & TV Random Generator",
+  "icons": [
+    {
+      "src": "image148.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "image196.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "image1192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "https://lore-code.github.io/What-to-Watch/"
+}
