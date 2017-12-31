@@ -36,10 +36,14 @@ $(".cat").click(function()
 
    genre=$(this).val();
 
-   movieSearch();
+
+  for (var i=0; i<2; i++) {
+   search();
+};
+
+})
 
 
-});
 
 
 
@@ -64,9 +68,18 @@ var year_start;
 
 var year_end;
 
+var movieId;
+
+var html;
+
+var trailer;
+
+var trailer1;
 
 
 function movieSearch() {
+
+
 
   //when movie or tv clicked get value 
 
@@ -128,7 +141,7 @@ if (genre == "action") {
 
 //genre = action or adventure or crime 
 
-  url2 = url1 + "&page=" + page + "&language=en-US&certification_country=US&sort_by=popularity.desc&include_adult=false&include_video=false&with_genres=28| 12|80|"; 
+  url2 = url1 + "&page=" + page + "&language=en-US&certification_country=US&sort_by=popularity.desc&include_adult=false&include_video=false&with_genres=28|12|80|"; 
 
 }
 
@@ -136,7 +149,7 @@ if (genre == "scary") {
 
 //genre = horror or mystery or thriller  
 
-  url2 = url1 + "&page=" + page + "&language=en-US&certification_country=US&sort_by=popularity.desc&include_adult=false&include_video=false&with_genres=27| 9648|80|53"; 
+  url2 = url1 + "&page=" + page + "&language=en-US&certification_country=US&sort_by=popularity.desc&include_adult=false&include_video=false&with_genres=27|9648|80|53"; 
 
 }
 
@@ -156,31 +169,72 @@ var settings = {
       
 
 
-$.ajax(settings).done(function (response) {
+return $.ajax(settings).then(function (info) {
 
 // $.ajax(settings,settings1)
 
 
-	var total = response.total_results;
-	// console.log(total);
+  // console.log(total);
  //  console.log(response);
 
+console.log(info);
  //random number using chance library gives me nine numbers between 0 and 19  
-var y = chance.unique(chance.integer, 9, {min: 0, max: 19});
+var y = chance.unique(chance.integer, 1, {min: 0, max: 19});
+
+
+
+var info = info["results"][y];
+
+console.log(y);
+
+
+
+      
+     //get results in to variable then get title, poster, plot, trailer
+      
+      movieId = info["id"];
+
+      console.log(movieId);
+
+      
+
+    
+
+    
+
+
+
+});
+
+
+
+};
+
+
+
+function getCurrentTrailer() {
+
+
+
+  return $.ajax("https://api.themoviedb.org/3/" + type + "/" + movieId + "?api_key=" + mykey + "&append_to_response=videos")
+ 
+}
+
+
+function search() {
 
   
-//do this nine times 
-  for (var i = 0; i < 9; i++) {
 
-  		
+  movieSearch().then(getCurrentTrailer)
 
-  	 //get results in to variable then get title, poster, plot, trailer
-  		var info = response.results[y[i]];
-  		console.log(info);
+  .then(function(info)  {
 
-  		// var test1 = JSON.stringify(test);
 
-  		var title;
+    console.log("this is the last bit: ");
+
+   console.log(info);
+
+var title;
       var date;
 
       //select titles based on type
@@ -214,41 +268,54 @@ var y = chance.unique(chance.integer, 9, {min: 0, max: 19});
       // console.log(poster);
 
       var plot = info["overview"];
-  		
-  		
-       
-            var trailer = "https://www.youtube.com/results?search_query=" + encodeURIComponent(title + " HD Trailer");
+      
+      
+      html = '<div class="col s12 m4 l4"><div class="card"><div class="card-image waves-effect waves-block waves-light">' + 
+      '<img class="activator"' + 'src=' + poster + '></div><div class="card-content"><span class="card-title activator grey-text text-darken-4">' + title + '<p>' + date + '</p><i class="material-icons right">more_vert</i></span></div>'+'<div class="card-reveal"><span class="card-title grey-text text-darken-4">' + title + '<i class="material-icons right">close</i></span><p>Plot: ' + plot + '</p>'
+
+               
+                console.log(info.videos.results.length);
+
+                var trailer3 = "https://www.youtube.com/results?search_query=" + encodeURIComponent(title + " HD Trailer");
+
+                if(info.videos.results.length== 0){
+
+                  trailer = "No video found";
+                  trailer1= "No video found";
+                  trailer2 = '<p>No Video Found</p><a href=' +  trailer3 + '>Search YouTube</a>';
+
+                }
+
+                else{
+                   trailer = info.videos.results[0]["key"];
+                trailer1 = "https://www.youtube.com/embed/" + encodeURI(trailer + '?rel=0&amp;controls=0');
+                  var trailer2 = '<div class="video-container"><iframe width="560" height="315" src=' + trailer1 + 'frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe></div></div>';
+                }
+  
+  console.log(trailer);
+  console.log(trailer1);
      
 
 
 
-          // console.log(trailer);
+$("#info").append(html+trailer2);
+})
 
-      // 
 
-      // console.log(date);
-        
-       
-         $("#info").append(
 
-      '<div class="col s12 m4 l4"><div class="card"><div class="card-image waves-effect waves-block waves-light">' + 
-      '<img class="activator"' + 'src=' + poster + '></div><div class="card-content"><span class="card-title activator grey-text text-darken-4">' + title + '<p>' + date + '</p><i class="material-icons right">more_vert</i></span></div><'+'div class="card-reveal"><span class="card-title grey-text text-darken-4">' + title + '<i class="material-icons right">close</i></span><p>Plot: ' + plot + '</p><p><a href=' + trailer + '><i class="material-icons large">videocam</i></a></p></div>');
+}
 
-       
-       
-    
 
-  }
+
+      
+ 
 
 
   
 
 
 
-});
 
-
-};
 
 
 
