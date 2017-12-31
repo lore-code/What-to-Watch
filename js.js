@@ -37,9 +37,8 @@ $(".cat").click(function()
    genre=$(this).val();
 
 
-  for (var i=0; i<2; i++) {
+  
    search();
-};
 
 })
 
