@@ -335,7 +335,9 @@ function search() {
 }
 
 
-
+$(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });
       
  
 
