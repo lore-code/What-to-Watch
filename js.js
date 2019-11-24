@@ -100,7 +100,7 @@ $(".types").click(function(){
 
 year_start = "2017-01-01";
 
-year_end = "2019-12-31";
+year_end = "2020-12-31";
 
 
 if (type == "movie"){
