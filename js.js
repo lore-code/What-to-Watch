@@ -255,7 +255,7 @@ console.log(infos);
       
       
       html = '<div class="col s12 m4 l4"><div class="card"><div class="card-image waves-effect waves-block waves-light">' + 
-      '<img class="activator"' + 'src=' + poster + '></div><div class="card-content tooltipped" data-position="bottom" data-tooltip="I am a tooltip"><span class="card-title activator grey-text text-darken-4">' + title + '<p>' + date + '</p><i class="material-icons right">more_vert</i></span></div>'+'<div class="card-reveal"><span class="card-title grey-text text-darken-4">' + title + '<i class="material-icons right">close</i></span><p>Plot: ' + plot + '</p>'
+      '<img class="activator"' + 'src=' + poster + '></div><div class="card-content"><span class="card-title activator grey-text text-darken-4">' + title + '<p>' + date + '</p><i class="material-icons right">more_vert</i></span></div>'+'<div class="card-reveal"><span class="card-title grey-text text-darken-4">' + title + '<i class="material-icons right">close</i></span><p>Plot: ' + plot + '</p>'
     
 
 
